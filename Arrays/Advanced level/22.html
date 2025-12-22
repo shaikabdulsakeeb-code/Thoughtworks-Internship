@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22. Reduce each element of an array by 25% and store in another array.</title>
+</head>
+<body>
+    <script>
+        var n=+prompt("Enter how many elements in array")
+        var ar=[]
+        for(var i=0;i<n;i++){
+            var ele=+prompt("Enter element")
+            ar[i]=ele
+        }
+        document.write("Array = "+ar)
+        var br=[]
+        for(var i=0;i<ar.length;i++){
+            br[i]=ar[i]-(ar[i]*(25/100))
+        }
+        document.write("<br>After Reducing each element of an array by 25% stored array = "+br)
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29. Increment salaries by 5% in a given array.</title>
+</head>
+<body>
+    <script>
+        var cnt_emp=+prompt("Enter No. of employees")
+        var salaries=[]
+        for(var i=0;i<cnt_emp;i++){
+            var salary=+prompt("Enter Salary ofn"+(i+1)+"id employee")
+            salaries[i]=salary
+        }
+        document.write("Salaries of employees before increment = "+salaries)
+        for(var i=0;i<salaries.length;i++){
+            salaries[i]=salaries[i]+(salaries[i]*(5/100))
+        }
+        document.write("<br>Salaries of employees After increment by 5% = "+salaries)
+    </script>
+</body>
+</html>

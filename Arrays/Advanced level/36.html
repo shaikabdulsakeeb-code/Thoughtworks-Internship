@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36. Print elements in the second half of the array. </title>
+</head>
+<body>
+   <script>
+        var n=+prompt("Enter how many elements in array")
+        var ar=[]
+        for(var i=0;i<n;i++){
+            var ele=+prompt("Enter element")
+            ar[i]=ele
+        }
+        document.write("Array = "+ar)
+        document.write("<br>second half of the array = ")
+        for(var i=Math.floor(ar.length/2);i<ar.length;i++){
+            document.write(ar[i]+" ")
+        }
+    </script>
+</body>
+</html>

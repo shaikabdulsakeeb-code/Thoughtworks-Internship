@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</title>33. Deduct tax: 10% for salaries < 50000, 12% for salaries > 50000. <title>
+
+</head>
+<body>
+    <script>
+        var cnt_emp=+prompt("Enter No. of employees")
+        var salaries=[]
+        for(var i=0;i<cnt_emp;i++){
+            var salary=+prompt("Enter Basic Salary of "+(i)+"id employee")
+            salaries[i]=salary
+        }
+        document.write("For each salary, final amount after adding 40% HRA, 92% DA, and deducting 10% tax <br>")
+        for(var i=0;i<salaries.length;i++){
+           var hra = salaries[i] * 0.40  
+            var da = salaries[i] * 0.92
+            var gross = salaries[i] + hra + da
+            var tax;
+            if(salaries[i]<50000){
+                tax = gross * 0.10        
+            }
+            if(salaries[i]>50000){
+                tax = gross * 0.12       
+            }
+            var final_amount = gross - tax;
+            document.write(salaries[i]+" = "+final_amount+"<br>")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33. Print the greatest of all 2-digit numbers in an array.</title>
+</head>
+<body>
+<script>
+var arr = [5, 12, 99, 7, 45, 102, 88, 9];
+var max = -1;
+
+for (var i = 0; i < arr.length; i++) {
+    if (arr[i] >= 10 && arr[i] <= 99) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+}
+
+if (max != -1){
+    document.write("Greatest 2-digit number = " + max);
+}
+else{
+    document.write("No 2-digit number found");
+}
+</script> 
+</body>
+</html>

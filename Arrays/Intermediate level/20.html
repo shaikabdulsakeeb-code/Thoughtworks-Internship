@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20. Eliminate duplicates in an array.</title>
+</head>
+<body>
+     <script>
+        var arr=[88,55,22,44,12,4,1,41,44,4,133,55,44]
+        document.write(arr+"<br>")
+        var uniq=[]
+        for(var i=0;i<arr.length;i++){
+            if(uniq.indexOf(arr[i])==-1){
+                uniq.push(arr[i])
+            }
+        }
+        document.write("Array without duplicates = "+uniq)
+    </script>    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19. Print the index of a given element.</title>
+</head>
+<body>
+    <script>
+        var arr=[88,55,22,44,12,4,1,41,44,4,133,55,44]
+        document.write(arr+"<br>")
+        var num=+prompt("Enter the number")
+        var found=false
+        var idx
+        for(var i=0;i<arr.length;i++){
+            if(num==arr[i]){
+                idx=i
+                found=true
+                break
+            }
+        }
+       if(found){
+           document.write("Index of "+num+" in array = "+idx)
+         } 
+         else{
+           document.write("Not exist in array ")
+         }
+    </script>
+</body>
+</html>

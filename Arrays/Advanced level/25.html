@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25. Print only 2-digit numbers from an array.</title>
+</head>
+<body>
+    <script>
+        var n=+prompt("Enter how many elements in array")
+        var ar=[]
+        var cnt=0,dig
+        for(var i=0;i<n;i++){
+            var ele=+prompt("Enter element")
+            ar[i]=ele
+        }
+        document.write("Array = "+ar)
+        document.write("<br>2-digit numbers from an array = ")
+        for(ele of ar){
+            var temp=ele
+            var cnt=0
+            while(temp>0){
+                cnt=cnt+1
+                temp=Math.floor(temp/10)
+            }
+            if(cnt==2){
+                document.write(ele+" ")
+            }
+        }
+    
+    </script>
+</body>
+</html>

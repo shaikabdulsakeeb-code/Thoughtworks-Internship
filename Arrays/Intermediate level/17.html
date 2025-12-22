@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17. Search if a number exists in an array.</title>
+</head>
+<body>
+    <script>
+        var arr=[88,55,22,44,12,4,1,41,4,133,55]
+        document.write(arr+"<br>")
+        var num=+prompt("Enter the number")
+        var found=false
+        for(ele of arr){
+            if(num==ele){
+                found=true
+            }
+        }
+       if(found){
+           document.write("Yes "+num+" exist in array")
+         } 
+         else{
+           document.write("Not exist in array")
+         }
+    </script>
+</body>
+</html>

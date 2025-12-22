@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 7. Store an array into another array (copy array).</title>
+</head>
+<body>
+    <script>
+        var ar=[1,"hel",2,"heaven",true,7.77718]
+        // br=[1,"hel",2,"heaven",true,7.77718]
+        // br=ar no copy
+        // document.write(ar==br) true
+         var cr=[]
+         for(var i=0;i<ar.length;i++){
+                cr[i]=ar[i]
+         }   
+         document.write(cr)
+         var br=ar.slice()
+        document.write("<br>"+br)
+
+    </script>
+</body>
+</html>

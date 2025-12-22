@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21. Create a duplicate array for a given array.</title>
+</head>
+<body>
+    <script>
+        var n=+prompt("Enter how many elements in array")
+        var arr=[]
+        for(var i=0;i<n;i++){
+            var ele=+prompt("Enter element ")
+            arr[i]=ele
+        }
+        document.write("Original array = "+arr)
+        var br=arr.slice()
+        document.write("<br>Using slice = "+br)
+        var cr=[]
+        for(var i=0;i<arr.length;i++){
+            cr.push(arr[i])
+        }
+        document.write("<br>Using loop iteration = "+cr)
+        var dr=[]
+        dr.splice(0,0,arr)
+        document.write("<br>Using splice = "+br)
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. Sort an array in ascending order.</title>
+</head>
+<body>
+    <script>
+        ar=[10,9,8,7,6,54,22,34,12,42]
+        document.write(ar+"<br>")
+        for(var i=0;i<ar.length;i++){
+            for(var j=i+1;j<ar.length;j++){
+                if(ar[i]>ar[j]){
+                    var temp=ar[i]
+                    ar[i]=ar[j]
+                    ar[j]=temp
+                }
+            }
+        }
+        document.write("After sorting in ascending order = "+ar)
+    </script>
+</body>
+</html>

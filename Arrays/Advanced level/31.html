@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31. Sort an array based on the number of occurrences of elements.</title>
+</head>
+<body>
+<script>
+var ip = [5,5,66,66,323,323,323,1,4,4,4,4];
+var freq = {};
+var unique = [];
+var result = [];
+for (var i = 0; i < ip.length; i++) {
+    if (freq[ip[i]] == undefined) {
+        freq[ip[i]] = 1;
+        unique.push(ip[i]);
+    } else {
+        freq[ip[i]]++;
+    }
+}
+for (var i = 0; i < unique.length; i++) {
+    for (var j = i + 1; j < unique.length; j++) {
+        if (freq[unique[i]] > freq[unique[j]]) {
+            var temp = unique[i];
+            unique[i] = unique[j];
+            unique[j] = temp;
+        }
+    }
+}
+for (var i = 0; i < unique.length; i++) {
+    for (var j = 0; j < freq[unique[i]]; j++) {
+        result.push(unique[i]);
+    }
+}
+
+document.write(result);
+</script>
+</body>
+</html>

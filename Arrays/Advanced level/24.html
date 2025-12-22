@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24. Print only the perfect squares in an array.</title>
+</head>
+<body>
+    <script>
+        var n=+prompt("Enter how many elements in array")
+        var ar=[]
+        for(var i=0;i<n;i++){
+            var ele=+prompt("Enter element")
+            ar[i]=ele
+        }
+        document.write("Array = "+ar)
+        document.write("<br>Perfect squares from given array = ")
+        for(ele of ar){
+            if(Number.isInteger(Math.sqrt(ele))){
+                document.write(ele+" ")
+            }
+        }
+    </script>
+</body>
+</html>

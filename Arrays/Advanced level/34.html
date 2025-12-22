@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>34. Write a program to remove elements that are not in ascending order.</title>
+</head>
+<body>
+<script>
+var arr = [12, 34, 11, 56, 37, 98, 23];
+var result = [];
+
+result.push(arr[0]);
+
+for (var i = 1; i < arr.length; i++) {
+    if (arr[i] > result[result.length - 1]) {
+        result.push(arr[i]);
+    }
+}
+
+document.write(result);
+</script>
+   
+</body>
+</html>

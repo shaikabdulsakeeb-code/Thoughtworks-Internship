@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18. Find the total number of times an element appears in an array.</title>
+</head>
+<body>
+    <script>
+        var arr=[88,55,22,44,12,4,1,41,44,4,133,55,44]
+        document.write(arr+"<br>")
+        var num=+prompt("Enter the number")
+        var found=false
+        var frequency=0
+        for(ele of arr){
+            if(num==ele){
+                found=true
+                frequency++
+            }
+        }
+       if(found){
+           document.write("Yes "+num+" exist in array and "+frequency+"  times appears in an array")
+         } 
+         else{
+           document.write("Not exist in array "+frequency+" times appear")
+         }
+    </script>
+</body>
+</html>
