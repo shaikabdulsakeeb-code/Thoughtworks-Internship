@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to reverse a number using recursion.</title>
+</head>
+
+<body>
+    <script>
+        function reverseNum(n, rev = 0) {
+            if (n === 0) return rev
+            return reverseNum(Math.floor(n / 10), rev * 10 + n % 10)
+        }
+        document.write("Reverse of 1234: " + reverseNum(1234) + "<br><br>")
+    </script>
+
+</body>
+
+</html>

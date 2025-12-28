@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to find the sum of all even/odd numbers in a given range using recursion.</title>
+</head>
+
+<body>
+  <script>
+    function sumEven(n) {
+        if (n <= 0) return 0;
+
+        if (n % 2 === 0)
+            return n + sumEven(n - 1);
+        else
+            return sumEven(n - 1);
+    }
+
+    document.write("Sum of even numbers upto 10 = " + sumEven(10) + "<br>");
+    function sumOdd(n) {
+        if (n <= 0) return 0;
+
+        if (n % 2 !== 0)
+            return n + sumOdd(n - 1);
+        else
+            return sumOdd(n - 1);
+    }
+
+    document.write("Sum of odd numbers upto 10 = " + sumOdd(10));
+</script>
+</body>
+
+</html>

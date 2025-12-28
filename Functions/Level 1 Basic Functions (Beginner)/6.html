@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to return the number of digits in a number. </title>
+</head>
+<body>
+    <script>
+        a=+prompt("Enter number")
+        function numberofdigits(n){
+            var dig,cnt=0
+            while(n>0){
+                dig=n%10
+                cnt++
+                n=Math.floor(n/10)
+            }
+            return cnt
+        }    
+        document.write("No.of digits in ",a," = "+numberofdigits(a))
+        
+    </script>
+</body>
+</html>

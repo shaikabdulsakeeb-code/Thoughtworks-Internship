@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to check if an array is sorted in ascending order. 
+</title>
+</head>
+<body>
+    <script>
+        var ar = [1,2,55,4,5]
+        var flag = true
+
+        function isSorted(arr){
+            for(var i=0;i<arr.length-1;i++){
+                if(arr[i]>arr[i+1]){
+                    flag = false
+                    break
+                }
+            }
+            return flag
+        }
+
+        if(isSorted(ar)){
+            document.write("Yes, array is sorted")
+        }
+         else {
+            document.write("No, array is NOT sorted")
+        }
+    </script>
+</body>
+</html>

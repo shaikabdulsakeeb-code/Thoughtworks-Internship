@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to check if a number is an Armstrong number.</title>
+</head>
+
+<body>
+    <script>
+        function isArmstrong(num) {
+            let digits = num.toString().split('');
+            let power = digits.length;
+            let sum = digits.reduce((s, d) => s + Math.pow(d, power), 0);
+            return sum === num;
+        }
+        console.log(isArmstrong(153))
+        console.log(isArmstrong(123))
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to find the sum of digits of a number using recursion. </title>
+</head>
+
+<body>
+    <script>
+        function sumDigits(n) {
+            if (n === 0) return 0
+            return n % 10 + sumDigits(Math.floor(n / 10))
+        }
+        document.write("Sum of digits of 123: " + sumDigits(123) + "<br><br>")
+    </script>
+
+</body>
+
+</html>

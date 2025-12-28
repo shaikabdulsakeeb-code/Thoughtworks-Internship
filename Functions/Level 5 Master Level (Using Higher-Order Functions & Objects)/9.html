@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a function that implements all string-based assignments using string methods.</title>
+</head>
+
+<body>
+    <script>
+        function stringAssignments(str) {
+            document.write("Original String: " + str + "<br>")
+            document.write("Length: " + str.length + "<br>")
+            document.write("Uppercase: " + str.toUpperCase() + "<br>")
+            document.write("Lowercase: " + str.toLowerCase() + "<br>")
+            document.write("Reversed: " + str.split('').reverse().join('') + "<br>")
+            document.write("Word Count: " + str.split(" ").length + "<br><br>")
+        }
+
+        stringAssignments("JavaScript is powerful")
+    </script>
+
+</body>
+
+</html>

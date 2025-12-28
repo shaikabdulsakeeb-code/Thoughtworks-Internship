@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a function that implements all object-based assignments using object methods.</title>
+</head>
+
+<body>
+    <script>
+        function objectAssignments(obj) {
+            let keys = Object.keys(obj)
+            let values = Object.values(obj)
+            let entries = Object.entries(obj)
+
+            document.write("Object Keys: " + keys + "<br>")
+            document.write("Object Values: " + values + "<br>")
+            document.write("Object Entries: " + entries + "<br><br>")
+        }
+
+        objectAssignments({ name: "Sakeeb", age: 21, course: "CSE" })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to sort three numbers in ascending order. </title>
+</head>
+<body>
+    <script>
+        function sort3(){
+            var ar=[]
+            for(var i=0;i<arguments.length;i++){
+                ar.push(arguments[i])
+            }
+            for(var i=0;i<ar.length;i++){
+                for(var j=i+1;j<ar.length;j++){
+                    if(ar[i]>ar[j]){
+                        var temp=ar[i]
+                        ar[i]=ar[j]
+                        ar[j]=temp
+                    }
+                }
+            }
+            document.write(ar)
+
+        }
+        sort3(50,22,33)
+    </script>
+</body>
+</html>

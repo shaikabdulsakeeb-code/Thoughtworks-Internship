@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to count the occurrences of a given number in an array. </title>
+</head>
+<body>
+    <script>
+        var ar=[99,88,77,99,33,88,33,1,2,99,3,281,81,821,3,5,7,22,99]
+        function count(ar,n){
+            var cnt=0
+            ar.forEach(function(ele){
+                if(ele==n)
+                cnt++
+            })
+            return cnt
+        }
+        var x=99
+        document.write(x," in array = "+count(ar,99))
+
+    </script>
+</body>
+</html>

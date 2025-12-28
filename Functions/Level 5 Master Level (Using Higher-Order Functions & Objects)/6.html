@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use .map() to capitalize the first letter of each word in an array of strings.</title>
+</head>
+
+<body>
+    <script>
+        function capitalizeWords(arr) {
+            return arr.map(w => w[0].toUpperCase() + w.slice(1))
+        }
+        document.write("Capitalized words: " + capitalizeWords(["java", "script", "lab"]) + "<br><br>")
+    </script>
+
+</body>
+
+</html>

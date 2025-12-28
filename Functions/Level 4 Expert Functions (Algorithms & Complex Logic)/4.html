@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to print all Armstrong numbers between two numbers</title>
+</head>
+
+<body>
+    <script>
+        function isArmstrong(num) {
+            let digits = num.toString().split("")
+            let power = digits.length
+            let sum = digits.reduce((s, d) => s + Math.pow(d, power), 0)
+            return sum === num
+        }
+
+        function printArmstrong(start, end) {
+            for (let i = start; i <= end; i++) {
+                if (isArmstrong(i)) document.write(i + " ")
+            }
+        }
+        document.write("Armstrong numbers between 1 and 500: ")
+        printArmstrong(1, 500)
+        document.write("<br><br>")
+    </script>
+
+</body>
+
+</html>

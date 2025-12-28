@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to find the sum of all numbers up to n using recursion.</title>
+</head>
+
+<body>
+    <script>
+        function sumN(n) {
+            if (n === 0) return 0
+            return n + sumN(n - 1)
+        }
+        document.write("Sum upto 5: " + sumN(5) + "<br><br>")
+    </script>
+
+</body>
+
+</html>

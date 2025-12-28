@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to check if a given number is a palindrome. </title>
+</head>
+<body>
+    <script>
+        a=+prompt("Enter number")
+        function ispalindrome(n){
+            var dig,rev=0,temp=n
+            while(temp>0){
+                dig=temp%10
+                rev=rev*10+dig
+                temp=Math.floor(temp/10)
+            }
+            return rev==n
+        }
+        if(ispalindrome(a)){
+            document.write(a," is palindrome")
+        }
+        else{
+            document.write(a," is not a palindrome")
+        }
+    </script>
+</body>
+</html>

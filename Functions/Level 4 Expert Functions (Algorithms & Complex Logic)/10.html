@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to reverse a string using recursion</title>
+</head>
+
+<body>
+    <script>
+        function reverseString(str) {
+            if (str === "") return ""
+            return reverseString(str.slice(1)) + str[0]
+        }
+        document.write("Reverse of hello: " + reverseString("hello") + "<br><br>")
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to print all prime numbers between two given numbers</title>
+</head>
+
+<body>
+    <script>
+        function isPrime(n) {
+            if (n < 2) return false
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) return false
+            }
+            return true
+        }
+
+        function printPrimes(start, end) {
+            for (let i = start; i <= end; i++) {
+                if (isPrime(i)) document.write(i + " ")
+            }
+        }
+        document.write("Prime numbers between 1 and 20: ")
+        printPrimes(1, 20)
+        document.write("<br><br>")
+    </script>
+
+</body>
+
+</html>

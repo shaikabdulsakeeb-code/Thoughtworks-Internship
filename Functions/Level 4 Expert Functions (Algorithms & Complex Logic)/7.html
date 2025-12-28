@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to find the sum of elements in an array using recursion.</title>
+</head>
+
+<body>
+    <script>
+        function sumArray(arr, i = 0) {
+            if (i === arr.length) return 0
+            return arr[i] + sumArray(arr, i + 1)
+        }
+        document.write("Sum of array elements: " + sumArray([1, 2, 3, 4]) + "<br><br>")
+    </script>
+
+</body>
+
+</html>

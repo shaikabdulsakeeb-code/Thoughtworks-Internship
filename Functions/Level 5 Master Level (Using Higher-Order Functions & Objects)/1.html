@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use .reduce() to find the maximum value in an array</title>
+</head>
+
+<body>
+    <script>
+        function maxUsingReduce(arr) {
+            return arr.reduce((a, b) => Math.max(a, b))
+        }
+        document.write("Maximum value: " + maxUsingReduce([10, 5, 20, 8]) + "<br><br>")
+    </script>
+
+</body>
+
+</html>

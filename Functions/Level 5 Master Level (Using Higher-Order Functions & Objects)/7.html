@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a function that implements all array-based assignments using array methods.</title>
+</head>
+
+<body>
+    <script>
+       function arrayAssignments(arr) {
+            let max = arr.reduce((a, b) => Math.max(a, b))
+            let min = arr.reduce((a, b) => Math.min(a, b))
+            let sum = arr.reduce((a, b) => a + b, 0)
+            let squares = arr.map(x => x * x)
+            let evens = arr.filter(x => x % 2 === 0)
+
+            document.write("Array: " + arr + "<br>")
+            document.write("Max: " + max + "<br>")
+            document.write("Min: " + min + "<br>")
+            document.write("Sum: " + sum + "<br>")
+            document.write("Squares: " + squares + "<br>")
+            document.write("Even Numbers: " + evens + "<br><br>")
+        }
+
+        arrayAssignments([1, 2, 3, 4, 5, 6])
+    </script>
+
+</body>
+
+</html>

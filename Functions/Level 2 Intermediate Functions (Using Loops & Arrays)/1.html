@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to find the maximum number in an array. </title>
+</head>
+<body>
+    <script>
+        function max(array){
+            var maximum=array[0]
+            for(ele of array){
+                if(ele > maximum){
+                    maximum=ele
+                }
+            }
+            return maximum
+        }
+        document.write(max([1,3,5,7,22,99]))
+    </script>
+</body>
+</html>

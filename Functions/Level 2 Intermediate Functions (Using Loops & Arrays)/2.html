@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to find the minimum number in an array. </title>
+</head>
+<body>
+    <script>
+        function min(array){
+            var minimum=array[0]
+            for(ele of array){
+                if(ele < minimum){
+                    minimum=ele
+                }
+            }
+            return minimum
+        }
+        document.write(min([-11,0,3,5,7,22,99]))
+    </script>
+</body>
+</html>

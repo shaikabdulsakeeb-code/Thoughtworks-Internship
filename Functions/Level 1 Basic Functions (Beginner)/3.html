@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to reverse a given number. </title>
+</head>
+<body>
+    <script>
+        a=+prompt("Enter number")
+        function rever(n){
+            var dig,rev=0
+            while(n>0){
+                dig=n%10
+                rev=rev*10+dig
+                n=Math.floor(n/10)
+            }
+            return rev
+        }
+        document.write("reverse of ",a," = "+rever(a))
+    </script>
+</body>
+</html>

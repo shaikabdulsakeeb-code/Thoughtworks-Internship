@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a function to count how many times a given character appears in a string</title>
+</head>
+
+<body>
+    <script>
+        function charCount(str, ch) {
+            return str.split(ch).length - 1
+        }
+        document.write("Count of 'a' in banana: " + charCount("banana", "a") + "<br><br>")
+    </script>
+
+</body>
+
+</html>
