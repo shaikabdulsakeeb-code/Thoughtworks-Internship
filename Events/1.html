@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getting text by button</title>
+</head>
+<body>
+    <button onclick="get()">add text</button>
+    <button id="btn">New button</button>
+    <script>
+        function get(){
+            let txt=document.createElement("h1")
+            txt.innerText="Hello welcome to events by onclick property"
+            txt.style.color="blue"
+            document.body.appendChild(txt)
+        }
+        document.getElementById('btn').addEventListener('click',()=>{
+             let txt=document.createElement("h1")
+            txt.innerText="Hello welcome to Js events"
+            txt.style.color="yellow"
+            document.body.appendChild(txt)
+        })
+    </script>
+</body>
+</html>

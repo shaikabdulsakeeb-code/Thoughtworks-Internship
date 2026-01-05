@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changing image on mouseover</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .im {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .im img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .output {
+            border: 1px solid black;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .output img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="im">
+        <img id="i1" src="https://i.pinimg.com/736x/67/82/2d/67822dfdff4b2d903eb8148c0fba6bd2.jpg">
+        <img id="i2" src="https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+        <img id="i3" src="https://i.pinimg.com/736x/d0/6d/cf/d06dcfc00ef2900f3bd8cba03a679fda.jpg">
+    </div>
+
+    <div class="output">
+        <img id="op" src="https://i.pinimg.com/736x/67/82/2d/67822dfdff4b2d903eb8148c0fba6bd2.jpg">
+    </div>
+
+    <script>
+        const i1=document.getElementById('i1')
+        const i2=document.getElementById('i2')
+        const i3=document.getElementById('i3')
+        const op=document.getElementById('op')   
+        i1.addEventListener('mouseover',()=>{
+            op.src="https://i.pinimg.com/736x/67/82/2d/67822dfdff4b2d903eb8148c0fba6bd2.jpg"
+        })
+        
+        i2.addEventListener('mouseover',()=>{
+            op.src="https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        })
+        i3.addEventListener('mouseover',()=>{
+            op.src="https://i.pinimg.com/736x/d0/6d/cf/d06dcfc00ef2900f3bd8cba03a679fda.jpg"
+        })
+
+    </script>
+</body>
+
+</html>

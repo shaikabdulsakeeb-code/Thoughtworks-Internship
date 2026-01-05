@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing color</title>
+    <style>
+        .box{
+            border: 1px solid black;
+            width: 150px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box" id="b1"></div>
+    <button id="r">Red</button>
+    <button id="b">Blue</button>
+    <button id="g">Green</button>
+    <button id="Rst">Reset</button>
+    <script>
+        document.getElementById('r').addEventListener('click',()=>{
+            document.getElementById('b1').style.backgroundColor="red"
+        })
+        document.getElementById('b').addEventListener('click',()=>{
+            document.getElementById('b1').style.backgroundColor="blue"
+        })
+        document.getElementById('g').addEventListener('click',()=>{
+            document.getElementById('b1').style.backgroundColor="rgb(10, 249, 10)"
+        })
+        document.getElementById('Rst').addEventListener('click',()=>{
+            document.getElementById('b1').style.backgroundColor=""
+        })
+    </script>
+</body>
+</html>

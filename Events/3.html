@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changing button background color</title>
+    <style>
+        .btn {
+            background-color: white;
+            border: 1px solid orangered;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="bt" class="btn">white</button>
+
+    <script>
+        const btn = document.getElementById('bt');
+
+        btn.addEventListener('click', () => {
+            if (btn.style.backgroundColor === "green") {
+                btn.style.backgroundColor = "white";
+                btn.style.color = "black";
+                btn.innerText = "white";
+            } else {
+                btn.style.backgroundColor = "green";
+                btn.style.color = "white";
+                btn.innerText = "green";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

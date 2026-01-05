@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .s {
+            cursor: pointer;
+        }
+
+        .s div {
+            display: inline;
+            font-size: 100px;
+
+        }
+
+        #r {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="s">
+        <div id="s1">☆</div>
+        <div id="s2">☆</div>
+        <div id="s3">☆</div>
+        <div id="s4">☆</div>
+        <div id="s5">☆</div>
+    </div>
+
+    <div id="r">
+        Rating: 0 / 5
+    </div>
+
+    <script>
+        const s1 = document.getElementById('s1')
+        const s2 = document.getElementById('s2')
+        const s3 = document.getElementById('s3')
+        const s4 = document.getElementById('s4')
+        const s5 = document.getElementById('s5')
+        const r = document.getElementById('r')
+        const of = "Rating: 0 / 5"
+        s1.addEventListener('click', () => {
+            if (s1.innerHTML === '★') {
+                s1.innerHTML = '☆';
+                r.innerText = of
+            } else {
+                s1.innerHTML = '★';
+                r.innerText = 'Rating: 1 / 5';
+            }
+        });
+        s2.addEventListener('click', () => {
+            if (s2.innerHTML === '★') {
+                s1.innerHTML = '☆';
+                s2.innerHTML = '☆';
+                r.innerText = of
+            }
+            else {
+                s1.innerHTML = "★"
+                s2.innerHTML = "★"
+                r.innerText = "Rating: 2 / 5"
+            }
+        }) 
+        s3.addEventListener('click', () => {
+            if (s3.innerHTML === '★') {
+                s1.innerHTML = '☆';
+                s2.innerHTML = '☆';
+                s3.innerHTML = '☆';
+                r.innerText = of
+            }
+            else {
+                s1.innerHTML = "★"
+                s2.innerHTML = "★"
+                s3.innerHTML = "★"
+                r.innerText = "Rating: 3 / 5"
+            }
+        })
+        s4.addEventListener('click', () => {
+            if (s4.innerHTML === '★') {
+                s1.innerHTML = '☆';
+                s2.innerHTML = '☆';
+                s3.innerHTML = '☆';
+                s4.innerHTML = '☆';
+                r.innerText = of
+            }
+            else {
+                s1.innerHTML = "★"
+                s2.innerHTML = "★"
+                s3.innerHTML = "★"
+                s4.innerHTML = "★"
+                r.innerText = "Rating: 4 / 5"
+            }
+        })
+        s5.addEventListener('click', () => {
+            if (s5.innerHTML === '★') {
+                s1.innerHTML = '☆';
+                s2.innerHTML = '☆';
+                s3.innerHTML = '☆';
+                s4.innerHTML = '☆';
+                s5.innerHTML = '☆';
+                r.innerText = of
+            }
+            else {
+                s1.innerHTML = "★"
+                s2.innerHTML = "★"
+                s3.innerHTML = "★"
+                s4.innerHTML = "★"
+                s5.innerHTML = "★"
+                r.innerText = "Rating: 5 / 5"
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

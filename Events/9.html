@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changing background color of div</title>
+    <style>
+        .box{
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box" id="b1"></div>
+    <button id="on">ON</button>
+    <button  id="off">OFF</button>
+    <script>
+        const  b1=document.getElementById('b1')
+        const on=document.getElementById('on')
+        const of=document.getElementById('off')
+        on.addEventListener('click',()=>{
+            b1.style.backgroundColor="yellow"
+            of.style.backgroundColor=""
+            on.style.backgroundColor="red"
+        })
+        of.addEventListener('click',()=>{
+            b1.style.backgroundColor=""
+            on.style.backgroundColor=""
+            of.style.backgroundColor="red"
+        })
+
+    </script>
+</body>
+</html>

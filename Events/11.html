@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changing image using Toggle button</title>
+    <style>
+        .box{
+            border: 1px solid  black;
+            height: 388px;
+            width: 306px;
+            margin-bottom: 10px;
+        }
+        .tg{
+            background-color: orange;
+        }
+
+    </style>
+</head>
+<body>
+    <img src="bulbof.jpg" class="box" id="b1"></img>
+    <button class="tg" id="t">Toggle</button>
+    <script>
+        const d1=document.getElementById('b1')
+        document.getElementById('t').addEventListener('click',()=>{
+            if(d1.src.includes('bulbon.jpg')){
+                d1.src='bulbof.jpg'
+            }
+            else{
+                d1.src='bulbon.jpg'
+            }
+        })
+    </script>
+</body>
+</html>

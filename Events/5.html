@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle button to show true and false</title>
+</head>
+<body>
+    <button id="bt">Toggle</button>
+    <b id="line">False</b>
+    <script>
+        document.getElementById('bt').addEventListener('click',()=>{
+            if(document.getElementById('line').innerText=='True'){
+                document.getElementById('line').innerText="False"
+            }
+            else{
+                document.getElementById('line').innerText="True"
+
+            }
+        })
+    </script>
+</body>
+</html>

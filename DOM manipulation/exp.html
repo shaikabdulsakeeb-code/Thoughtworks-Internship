@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marksheet display</title>
+</head>
+
+<body>
+    <script>
+
+        const students = {
+            "23183-CM-049": {
+                name: "Shaik Abdul Sakeeb",
+                branch: "Diploma in Computer Engineering",
+                gpa: 9.15,
+                total: 813,
+                result: "PASS",
+                subjects: {
+                    501: { external: 61, internal: 19, total: 80, grade: "B+" },
+                    502: { external: 62, internal: 19, total: 81, grade: "A" },
+                    503: { external: 60, internal: 18, total: 78, grade: "B+" },
+                    504: { external: 73, internal: 15, total: 88, grade: "A" },
+                    505: { external: 76, internal: 18, total: 94, grade: "A+" },
+                    506: { external: 60, internal: 39, total: 99, grade: "A+" },
+                    507: { external: 59, internal: 38, total: 97, grade: "A+" },
+                    508: { external: 57, internal: 39, total: 96, grade: "A+" },
+                    509: { external: 60, internal: 40, total: 100, grade: "A+" }
+                }
+            },
+
+            "23183-CM-046": {
+                name: "Samireddy Tarun Siva",
+                branch: "Diploma in Computer Engineering",
+                gpa: 8.41,
+                total: 733,
+                result: "PASS",
+                subjects: {
+                    501: { external: 43, internal: 13, total: 56, grade: "C+" },
+                    502: { external: 79, internal: 16, total: 95, grade: "A+" },
+                    503: { external: 61, internal: 13, total: 74, grade: "B+" },
+                    504: { external: 68, internal: 11, total: 79, grade: "B+" },
+                    505: { external: 63, internal: 14, total: 77, grade: "B+" },
+                    506: { external: 50, internal: 33, total: 83, grade: "A" },
+                    507: { external: 47, internal: 33, total: 80, grade: "B+" },
+                    508: { external: 56, internal: 38, total: 94, grade: "A+" },
+                    509: { external: 59, internal: 36, total: 95, grade: "A+" }
+                }
+            }
+        };
+
+
+        function createtable() {
+            let t = document.createElement("table")
+            t.style.border = "1px solid black"
+            t.style.borderCollapse = "collapse"
+            t.style.margin = "20px"
+            return t
+        }
+
+        function createth(text) {
+            let th = document.createElement("th")
+            th.innerText = text
+            th.style.border = "1px solid black"
+            th.style.padding = "10px"
+            return th
+        }
+
+        function createtd(text) {
+            let td = document.createElement("td")
+            td.innerText = text
+            td.style.border = "1px solid black"
+            td.style.padding = "10px"
+            return td
+        }
+
+        function createHeaderRow(table, headers) {
+            let tr = document.createElement("tr")
+            headers.forEach(h => tr.appendChild(createth(h)))
+            table.appendChild(tr)
+        }
+
+        // ---------- Row Helper ----------
+        function createRow(label, value) {
+            let tr = document.createElement("tr");
+            tr.appendChild(createtd(label));
+            tr.appendChild(createtd(value));
+            return tr;
+        }
+
+
+
+
+        // ---------- Search UI ----------
+        const input = document.createElement("input");
+        input.placeholder = "Enter PIN";
+        input.style.padding = "8px";
+        input.style.marginRight = "10px";
+
+        const btn = document.createElement("button");
+        btn.innerText = "Show Marksheet";
+        btn.style.padding = "8px";
+
+        document.body.appendChild(input);
+        document.body.appendChild(btn);
+
+        // ---------- Button Action ----------
+        btn.onclick = () => {
+            renderStudent(input.value.trim());
+        };
+
+        // ---------- Render Function ----------
+        function renderStudent(pin) {
+            const student = students[pin];
+
+            // clear old tables
+            document.querySelectorAll("table").forEach(t => t.remove());
+
+            if (!student) {
+                alert("Student not found");
+                return;
+            }
+
+            // ===== Student Info Table =====
+            let infoTable = createtable();
+            createHeaderRow(infoTable, ["Field", "Value"]);
+
+            infoTable.appendChild(createRow("PIN", pin));
+            infoTable.appendChild(createRow("Name", student.name));
+            infoTable.appendChild(createRow("Branch", student.branch));
+            infoTable.appendChild(createRow("GPA", student.gpa));
+            infoTable.appendChild(createRow("Total Marks", student.total));
+            infoTable.appendChild(createRow("Result", student.result));
+
+            document.body.appendChild(infoTable);
+
+            // ===== Subjects Table =====
+            let marksTable = createtable();
+            createHeaderRow(marksTable, [
+                "Code",
+                "External",
+                "Internal",
+                "Total",
+                "Grade"
+            ]);
+
+            for (let code in student.subjects) {
+                let sub = student.subjects[code];
+                let tr = document.createElement("tr");
+
+                tr.appendChild(createtd(code));
+                tr.appendChild(createtd(sub.external));
+                tr.appendChild(createtd(sub.internal));
+                tr.appendChild(createtd(sub.total));
+                tr.appendChild(createtd(sub.grade));
+
+                marksTable.appendChild(tr);
+            }
+
+            document.body.appendChild(marksTable);
+        }
+
+    </script>
+</body>
+
+</html>

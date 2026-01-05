@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like and dislike button</title>
+    <style>
+        .like{
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(7, 255, 69);
+            border: 1px solid orange;
+        }
+        .dislike{
+            margin: 10px;
+            padding: 10px;
+            color: white;
+            background-color: rgb(177, 26, 26);
+            border: 1px solid orange;
+        }
+        .count{
+            color: rgb(208, 27, 27);
+            border: 1px solid black; 
+            height: 60px;
+            display: inline;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="like" id="l">Like</button><div class="count" id="lc"></div>
+    <button class="dislike" id="d">Dislike</button><div class="count" id="dc"></div>
+    <script>
+        var like_count=0
+        document.getElementById('l').addEventListener('click',()=>{
+            let lc=document.getElementById('lc')
+            like_count++
+            lc.innerText=like_count
+        })
+        var dis_count=0
+        document.getElementById('d').addEventListener('click',()=>{
+            let dc=document.getElementById('dc')
+            dis_count++
+            dc.innerText=dis_count
+        })
+    </script>
+</body>
+
+</html>

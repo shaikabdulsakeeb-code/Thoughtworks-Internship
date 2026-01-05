@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta Name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Create one h1 element and put some text into it.</title>
+    <style>
+        #gotc {
+            color: rgb(122, 66, 49);
+            border: 1px solid black;
+            width: 380px;
+            padding: 10px;
+        }
+
+        #gt {
+            width: auto;
+        }
+
+        #l {
+            border: 1px solid black;
+            padding: 5px;
+            display: inline-block;
+            width: auto;
+        }
+
+        #l img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="gotc">Game of thrones characters</h1>
+    <table id="gt" border="1">
+
+    </table>
+    <ul id="got">
+
+    </ul>
+
+    <div id="l">
+
+    </div>
+    <script>
+        let ele = document.createElement("h1")
+        ele.innerText = "Hello My Name is Sakeeb Glad to start DOM Manipulation"
+        document.body.appendChild(ele)
+
+        // 2. Create one h1 element,put some text into it and apply red font color to
+        // it.
+        ele.style.color = "red"
+
+        // Take an array of names and create a list from it.
+        // Code :-
+        let ar = ['Robert Baratheon', 'Stannis Baratheon', 'Jon snow', 'Tyrion lannister', 'Jaime lannister', 'danareys Targareyen', 'Arya stark', 'Bran stark', 'Robb Stark', 'Sansa stark', 'Aegon Targareyen']
+        for (i of ar) {
+            var nli = document.createElement('li')
+            nli.innerText = i
+            document.getElementById('got').appendChild(nli)
+        }
+        // Take an array of numbers and create a list from it
+        let num = [1, 2, 3, 4, 5, 6, 7, 8]
+        for (i of num) {
+            var nli = document.createElement('li')
+            nli.innerText = i
+            document.getElementById('got').appendChild(nli)
+        }
+        // 5. Take an array of objects and create a table form it.
+        const gotCharacters = [
+            {
+                Name: "Jon Snow",
+                House: "Stark",
+                Role: "Warrior",
+                Status: "Alive"
+            },
+            {
+                Name: "Daenerys Targaryen",
+                House: "Targaryen",
+                Role: "Queen",
+                Status: "Deceased"
+            },
+            {
+                Name: "Tyrion Lannister",
+                House: "Lannister",
+                Role: "Advisor",
+                Status: "Alive"
+            },
+            {
+                Name: "Arya Stark",
+                House: "Stark",
+                Role: "Assassin",
+                Status: "Alive"
+            },
+            {
+                Name: "Bran Stark",
+                House: "Stark",
+                Role: "Seer",
+                Status: "Alive"
+            }
+        ];
+        var h = document.createElement("tr")
+        document.getElementById("gt").appendChild(h)
+        var c1 = document.createElement("th")
+        c1.innerText = "Name"
+
+        var c2 = document.createElement("th")
+        c2.innerText = "House"
+
+        var c3 = document.createElement("th")
+        c3.innerText = "Role"
+
+        var c4 = document.createElement("th")
+        c4.innerText = "Status"
+
+        h.appendChild(c1)
+        h.appendChild(c2)
+        h.appendChild(c3)
+        h.appendChild(c4)
+
+        for (var i = 0; i < gotCharacters.length; i++) {
+            var e = document.createElement("tr")
+            var d1 = document.createElement("td")
+            d1.innerText = gotCharacters[i].Name
+            e.appendChild(d1)
+            var d2 = document.createElement("td")
+            d2.innerText = gotCharacters[i].House
+            e.appendChild(d2)
+            var d3 = document.createElement("td")
+            d3.innerText = gotCharacters[i].Role
+            e.appendChild(d3)
+            var d4 = document.createElement("td")
+            d4.innerText = gotCharacters[i].Status
+            e.appendChild(d4)
+            document.getElementById("gt").appendChild(e)
+        }
+        var img = ["https://i.pinimg.com/736x/67/82/2d/67822dfdff4b2d903eb8148c0fba6bd2.jpg", "https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            , "https://i.pinimg.com/736x/d0/6d/cf/d06dcfc00ef2900f3bd8cba03a679fda.jpg"
+        ]
+        for (var i = 0; i < img.length; i++) {
+            var im = document.createElement("img")
+            im.src = img[i]
+            document.getElementById("l").appendChild(im)
+        }
+        
+    </script>
+</body>
+
+</html>

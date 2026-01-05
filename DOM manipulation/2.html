@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 6th problem</title>
+</head>
+
+<body>
+    <ul id="st">
+
+    </ul>
+    <script>
+        var students = [
+            {
+
+                name: 'jaya',
+
+                gender: 'female',
+
+                place: 'gachibowli',
+
+            },
+
+            {
+
+                name: 'dasu',
+
+                gender: 'male',
+
+                place: 'kphb'
+
+            },
+
+            {
+
+                name: 'swati',
+
+                gender: 'female',
+
+                place: 'pune'
+
+            },
+
+            {
+
+                name: 'pallavi',
+
+                gender: 'female',
+
+                place: 'assam'
+
+            },
+
+            {
+
+                name: 'kiran',
+
+                gender: 'male',
+
+                place: 'kondapur'
+
+            },
+
+            {
+
+                name: 'thirumala',
+
+                gender: 'male',
+
+                place: 'madhapur'
+
+            },
+
+            {
+
+                name: 'priya',
+
+                gender: 'female',
+
+                place: 'hitech'
+
+            },
+
+        ]
+        for(var i=0;i<students.length;i++){
+            var nli=document.createElement("li")
+            nli.innerText=students[i].name
+            var neli=document.createElement("ul")
+            neli.style.listStyle="circle"
+            var nelig=document.createElement("li")
+            nelig.innerText=students[i].gender
+            if(students[i].gender=='male'){
+                nli.style.backgroundColor="lightblue"
+            }
+            if(students[i].gender=='female'){
+                nli.style.backgroundColor="pink"
+            }
+            neli.appendChild(nelig)
+            var nelip=document.createElement("li")
+            nelip.innerText=students[i].place
+            neli.appendChild(nelip)
+            nli.appendChild(neli)
+            document.getElementById("st").appendChild(nli)
+        }
+    </script>
+</body>
+
+</html>

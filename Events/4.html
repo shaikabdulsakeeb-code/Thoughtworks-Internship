@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color rotation on click</title>
+    <style>
+        .d {
+            border: 1px solid black;
+            height: 100px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d" id="d1" onclick="color()"></div>
+    <script>
+        const d = document.getElementById('d1');
+        var colorar = ["red", "blue", "green", "yellow", "brown", "orange", "pink"]
+        let i=0
+        function color(){
+            d.style.backgroundColor=colorar[i]
+            i++
+            if(i===colorar.length){
+                i=0
+            }
+        }
+   </script>
+</body>
+
+</html>

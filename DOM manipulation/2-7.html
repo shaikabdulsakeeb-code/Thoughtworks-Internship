@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7. Generate UI using document object for the given Array of Objects</title>
+
+</head>
+
+<body>
+    <script>
+        var people = [
+
+            {
+
+                "firstname": "praveen",
+
+                "lastname": "gubbala",
+
+                "age": 36,
+
+                "gender": "male",
+
+                "city": "hyd",
+
+                "salary": 10000
+
+            },
+
+            {
+
+                "firstname": "srikanth",
+
+                "lastname": "gubbala",
+
+                "age": 32,
+
+                "gender": "male",
+
+                "city": "bengaluru",
+
+                "salary": 20000
+
+            },
+
+            {
+
+                "firstname": "pradeep",
+
+                "lastname": "reddy",
+
+                "age": 21,
+
+                "gender": "male",
+
+                "city": "hyd",
+
+                "salary": 30000
+
+            },
+
+            {
+
+                "firstname": "mounika",
+
+                "lastname": "mudiraj",
+
+                "age": 20,
+
+                "gender": "female",
+
+                "city": "nalgonda",
+
+                "salary": 30000
+
+            },
+
+            {
+
+                "firstname": "nikhil",
+
+                "lastname": "m",
+
+                "age": 22,
+
+                "gender": "male",
+
+                "city": "guntur",
+
+                "salary": 2000
+
+            },
+
+            {
+
+                "firstname": "riya",
+
+                "lastname": "bhadouria",
+
+                "age": 14,
+
+                "gender": "female",
+
+                "city": "indore",
+
+                "salary": 40000
+
+            }
+
+        ];
+
+        function createth(th) {
+            let ele = document.createElement("th")
+            ele.innerText = th
+            ele.style.padding = "10px"
+            ele.style.border = "1px solid black"
+            return ele
+        }
+        function createtable(){
+           let t = document.createElement("table")
+           t.style.border = "1px solid black"
+           t.style.borderCollapse = "collapse"
+           t.style.margin="20px"
+           return t
+        }
+        function createtd(td) {
+            let ele = document.createElement("td")
+            ele.innerText = td
+            ele.style.padding = "10px"
+            ele.style.border = "1px solid black"
+            return ele
+        }
+        // 1. Display people data in a table.
+        var t1=createtable()
+        document.body.appendChild(t1)
+
+        t1.appendChild(createth("firstname"))
+        t1.appendChild(createth("lastname"))
+        t1.appendChild(createth("age"))
+        t1.appendChild(createth("gender"))
+        t1.appendChild(createth("salary"))
+
+        for (let i = 0; i < people.length; i++) {
+            let tr = document.createElement("tr")
+            t1.appendChild(tr)
+            tr.appendChild(createtd(people[i].firstname))
+            tr.appendChild(createtd(people[i].lastname))
+            tr.appendChild(createtd(people[i].age))
+            tr.appendChild(createtd(people[i].gender))
+            tr.appendChild(createtd(people[i].salary))
+        }
+        
+        // 2. Display all male and female people in two separate tables.
+        var maletable=createtable()
+        document.body.appendChild(maletable)        
+        maletable.appendChild(createth("firstname"))
+        maletable.appendChild(createth("lastname"))
+        maletable.appendChild(createth("age"))
+        maletable.appendChild(createth("gender"))
+        maletable.appendChild(createth("salary"))
+         for (let i = 0; i < people.length; i++) {
+            let tr = document.createElement("tr")
+            maletable.appendChild(tr)
+            if(people[i].gender=='male'){
+                tr.appendChild(createtd(people[i].firstname))
+                tr.appendChild(createtd(people[i].lastname))
+                tr.appendChild(createtd(people[i].age))
+                tr.appendChild(createtd(people[i].gender))
+                tr.appendChild(createtd(people[i].salary))
+            }
+        }
+        var femaletable=createtable()
+        document.body.appendChild(femaletable)        
+        femaletable.appendChild(createth("firstname"))
+        femaletable.appendChild(createth("lastname"))
+        femaletable.appendChild(createth("age"))
+        femaletable.appendChild(createth("gender"))
+        femaletable.appendChild(createth("salary"))
+        for (let i = 0; i < people.length; i++) {
+            let tr = document.createElement("tr")
+            femaletable.appendChild(tr)
+            if(people[i].gender=='female'){
+                tr.appendChild(createtd(people[i].firstname))
+                tr.appendChild(createtd(people[i].lastname))
+                tr.appendChild(createtd(people[i].age))
+                tr.appendChild(createtd(people[i].gender))
+                tr.appendChild(createtd(people[i].salary))
+            }
+        }
+        
+        // 3. Display only those people in a table who are having salaries more than 20000.
+        var saltable=createtable()
+        document.body.appendChild(saltable)
+        saltable.appendChild(createth("firstname"))
+        saltable.appendChild(createth("lastname"))
+        saltable.appendChild(createth("age"))
+        saltable.appendChild(createth("gender"))
+        saltable.appendChild(createth("salary"))
+        for (let i = 0; i < people.length; i++) {
+            let tr = document.createElement("tr")
+            saltable.appendChild(tr)
+            if(people[i].salary>20000){
+                tr.appendChild(createtd(people[i].firstname))
+                tr.appendChild(createtd(people[i].lastname))
+                tr.appendChild(createtd(people[i].age))
+                tr.appendChild(createtd(people[i].gender))
+                tr.appendChild(createtd(people[i].salary))
+            }
+        }
+
+        // 4. Display only the male people who are above the age of 25.
+        var maleage=createtable()
+        document.body.appendChild(maleage)
+        maleage.appendChild(createth("firstname"))
+        maleage.appendChild(createth("lastname"))
+        maleage.appendChild(createth("age"))
+        maleage.appendChild(createth("gender"))
+        maleage.appendChild(createth("salary"))
+        for (let i = 0; i < people.length; i++) {
+            let tr = document.createElement("tr")
+            maleage.appendChild(tr)
+            if(people[i].age>25){
+                tr.appendChild(createtd(people[i].firstname))
+                tr.appendChild(createtd(people[i].lastname))
+                tr.appendChild(createtd(people[i].age))
+                tr.appendChild(createtd(people[i].gender))
+                tr.appendChild(createtd(people[i].salary))
+            }
+        }
+
+    </script>
+</body>
+
+</html>
