@@ -18,23 +18,45 @@
         var tdlist=document.getElementById('tdlist')
         var tasks=[]
         function addtodo(){
-            let t=task.value
+            var t=task.value
+            task.value=""
             tasks.push(t)
+            todoui()
+        }
+        function deletetodo(index){
+            tasks.splice(index,1)
             todoui()
         }
         function todoui(){
             tdlist.innerText=""
-            tasks.forEach(function(t){
-                let td=document.createElement("div")
-                let name=document.createElement("span")
+            tasks.forEach(function(t,idx){
+                var td=document.createElement("div")
+                var name=document.createElement("span")
                 name.innerText=t
-                let donebtn=document.createElement("button")
+                var delbtn=document.createElement("button")
+                delbtn.innerText="Delete"
+                delbtn.disabled=true
+                var donebtn=document.createElement("button")
+                donebtn.innerText="Done"
                 donebtn.addEventListener('click',function(){
-                    name.innerHTML="<strike>"+name+"</strike>"
-                    
+                    if(donebtn.innerText=="Undo"){
+                        name.innerHTML=t
+                        donebtn.innerText="Done"
+                    }
+                    else{
+                        name.innerHTML="<strike>"+t+"</strike>"
+                        donebtn.innerText="Undo"
+                        delbtn.disabled=false
+                    }
                 })
+                delbtn.addEventListener('click',function(){
+                    deletetodo(idx)
+                })
+                td.append(name,donebtn,delbtn)
+                tdlist.appendChild(td)
             })
         }
+
     </script>
 </body>
 </html>
