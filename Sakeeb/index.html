@@ -18,6 +18,37 @@
             height:150px;
             border-radius:50%;
         }
+        div{
+            margin-bottom:20px;
+        }
+        .prs{
+            margin-bottom:15px;
+            display: flex;
+            flex-direction: row
+        }
+        .prs div{
+            margin-right:20px;
+            border:1px solid #ccc;
+            padding:10px;
+            border-radius:5px;
+            width:300px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .prs div p{
+            margin-top:10px;
+        }
+        .prs div a{
+            font-size:18px;
+            font-weight:bold;
+            text-decoration:none;
+            color:#0056b3;
+        }
+        .prs div:hover{
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            transition: 0.4s ease-in-out;
+            background-color:#9af2f0;
+        }
     </style>
 </head>
 <body>
@@ -33,9 +64,22 @@
     <h3>Skills</h3>
     <ul type="square">
         <li>HTML, CSS, JavaScript</li>
+        <li>Firebase</li>
+        <li>Video Editing</li>
         <li>Communication Skills</li>
         <li>Problem Solving</li>
     </ul>
+    <h3>Projects</h3>
+    <div class="prs">
+        <div>
+            <a href="https://shaikabdulsakeeb-code.github.io/collegemarket/" target="_blank">CollegeMarket Website</a>
+            <p>CollegeMarket - A platform for students to buy and sell products</p>
+        </div>
+        <div>
+            <a href="#" target="_blank">Portfolio Website</a>
+            <p>Portfolio Website - A personal portfolio website showcasing projects and skills</p>
+        </div>
+    </div>
     <h3>Contact Me</h3>
     <p>Email: shaikabdulsakeeb@gmail.com</p>
 
