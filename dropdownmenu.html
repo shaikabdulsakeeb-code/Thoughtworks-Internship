@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Dropdown</title>
+
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+
+        #navbar{
+            display: flex;
+            align-items: center;
+            background-color: black;
+            height: 10vh;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding-left: 40px;
+            z-index: 1000;
+        }
+
+        #navbar img{
+            height: 50px;
+            margin-right: 30px;
+        }
+
+        #navbar a{
+            text-decoration: none;
+            margin-left: 40px;
+            color: rgb(245, 156, 3);
+            cursor: pointer;
+        }
+
+        #Dropdown{
+            position: relative;
+            z-index: 10;
+        }
+
+        #disdp{
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background-color: black;
+            border-radius: 10px;
+            padding: 10px 20px;
+            display: none;
+            z-index: 100;
+        }
+
+        #Dropdown:hover #disdp{
+            display: block;
+        }
+
+        #disdp a{
+            display: block;
+            margin: 8px 0;
+            color: rgb(245, 156, 3);
+            text-decoration: none;
+        }
+
+        #slider{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #slider img{
+            width: 100%;
+            max-width: 800px;
+        }
+
+        #prevbtn,#nxtbtn{
+            position: absolute;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        #prevbtn{
+            left: 20px;
+        }
+
+        #nxtbtn{
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar">
+        <img src="DOM assignments/bulbof.png">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+
+        <div id="Dropdown">
+            <a href="#">Products</a>
+            <div id="disdp">
+                <a href="#">iPhone 17 Pro Max</a>
+                <a href="#">MacBook M5</a>
+                <a href="#">Apple AirPods</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="slider">
+        <button id="prevbtn">&lt;</button>
+        <img src="DOM assignments/captain.jpg">
+        <button id="nxtbtn">&gt;</button>
+    </div>
+
+    <script>
+        const img=document.querySelector("#slider img");
+
+        document.getElementById("nxtbtn").addEventListener("click",()=>{
+            if(img.src.includes("captain.jpg")){
+                img.src="DOM assignments/ironman.jpg";
+            }else if(img.src.includes("ironman.jpg")){
+                img.src="DOM assignments/thor.jpg";
+            }else{
+                img.src="DOM assignments/captain.jpg";
+            }
+        });
+
+        document.getElementById("prevbtn").addEventListener("click",()=>{
+            if(img.src.includes("captain.jpg")){
+                img.src="DOM assignments/thor.jpg";
+            }else if(img.src.includes("thor.jpg")){
+                img.src="DOM assignments/ironman.jpg";
+            }else{
+                img.src="DOM assignments/captain.jpg";
+            }
+        });
+    </script>
+
+</body>
+</html>
