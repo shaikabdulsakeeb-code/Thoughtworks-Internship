@@ -25,7 +25,7 @@
         }
 
         .navbar ul li a:hover {
-            border-bottom: 1px solid #0a58ca;
+            color: #0a58ca;
             transition: 0.3s ease;
         }
 
