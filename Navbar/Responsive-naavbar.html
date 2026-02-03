@@ -7,24 +7,125 @@
     <title>Navbar</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #020c19;
+            color: #fafdff;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid color-mix(in srgb, #fafdff, transparent 90%);
+            height: 10vh;
+            padding: 0 80px;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .hamburger span {
+            height: 3px;
+            background-color: #fafdff;
+            margin: 4px 5px;
+            display: block;
+        }
+
+        .hamburger {
+            display: none;
+            width: 30px;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fafdff;
+        }
+
+        .links a:hover {
+            color: #0a58ca;
+            transition: 0.3s ease;
+        }
+        .links.active{
+            position: absolute;
+            top:0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #2b528cd0;
+            width:20vw;
+            padding: 10vh 10vw;
+            z-index: 1000;
+            transition: 0.5s ease-in-out;
+        }
+        .hamburger.active :nth-child(1){
+            transform: rotate(45deg) translate(0px,6px);
+        }
+        .hamburger.active :nth-child(2){
+            opacity: 0;
+        }
+        .hamburger.active :nth-child(3){      
+            transform: rotate(-45deg) translate(7px,-7px);
+        }
+        .hamburger.active{
+            transition: 0.5s ease-in-out;
+        }
+        @media screen and (max-width:768px) {
+            .links{
+                overflow: hidden;
+                width: 0vw;
+            }
+            .hamburger{
+                display: inline;
+                z-index: 1000;
+            }
+            
+        }
     </style>
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="Mobile.css">
 
 </head>
 
 <body>
     <div class="navbar">
-        <img class="logo" src="logo.jpeg" alt="">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Certifications</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-        <img src="navbar-icon.svg"  class="navbar-icon">
+        <div class="logo">MyPage</div>
+        <div id="navlinks" class="links">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Certifications</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div id="ham-icon" onclick="togglemenu()" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
+    <script>
+        const sidebar=document.getElementById('navlinks')
+        const ham=document.getElementById('ham-icon')
+        function togglemenu(){
+            sidebar.classList.toggle('active')
+            ham.classList.toggle('active')
+        }
+    </script>
 </body>
 
 </html>

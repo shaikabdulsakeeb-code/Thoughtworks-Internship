@@ -5,8 +5,14 @@
   .navbar ul{
     display: none;
   }
-  .navbar{
-    display: flex;
-    justify-content: space-around;
+  .navbar ul.show{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 1000;
+    background-color: #020c19;
+    width: 50%;
+
   }
 }
