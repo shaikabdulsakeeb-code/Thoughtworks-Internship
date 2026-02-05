@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        .container{
+            width: 100%;
+            padding: 100px 10%;
+            box-sizing: border-box;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #020c19;
+            color: #fafdff;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid color-mix(in srgb, #fafdff, transparent 90%);
+            height: 10vh;
+            padding: 0 80px;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .hamburger span {
+            height: 3px;
+            background-color: #fafdff;
+            margin: 4px 5px;
+            display: block;
+        }
+
+        .hamburger {
+            display: none;
+            width: 30px;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fafdff;
+        }
+
+        .links a:hover {
+            color: #0a58ca;
+            transition: 0.3s ease;
+        }
+        .links.active{
+            position: absolute;
+            top:0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #2b528cd0;
+            width:20vw;
+            padding: 10vh 10vw;
+            z-index: 1000;
+            transition: 0.5s ease-in-out;
+        }
+        .hamburger.active :nth-child(1){
+            transform: rotate(45deg) translate(0px,6px);
+        }
+        .hamburger.active :nth-child(2){
+            opacity: 0;
+        }
+        .hamburger.active :nth-child(3){      
+            transform: rotate(-45deg) translate(7px,-7px);
+        }
+        .hamburger.active{
+            transition: 0.5s ease-in-out;
+        }
+        @media screen and (max-width:768px) {
+            .links{
+                overflow: hidden;
+                width: 0vw;
+            }
+            .hamburger{
+                display: inline;
+                z-index: 1000;
+            }
+            
+        }
+        .hero{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #020c15;
+        }
+        .hero .hero-content{
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+        .hero-content p{
+            width: 40%;
+        }
+        .hero-btns button{
+            border: none;
+            background-color: #0a58ca;
+            font-family: "Montserrat", sans-serif;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .hero .hero-tabs{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.4rem;
+        }
+        .hero-tabs .hero-item{
+            font-size: 0.8rem;
+            border: 1px solid #0a58ca;
+            width: 35%;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hero-item:hover{
+            background-color: #0a58ca;
+            font-weight: 600;
+            transition: 0.5s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">MyPage</div>
+        <div id="navlinks" class="links">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Certifications</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div id="ham-icon" onclick="togglemenu()" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="hero container">
+        <div class="hero-content">
+            <h1>About</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda, vitae dolorum eos non possimus itaque soluta laboriosam ratione, cum, dignissimos magni molestias.</p>
+            <div class="hero-btns">
+                <button>Explore</button>
+                <button>Watch video</button>
+            </div>
+        </div>
+        <div class="hero-tabs">
+            <div class="hero-item"><span>150+ projects</span></div>
+            <div class="hero-item"><span>98% health</span></div>
+            <div class="hero-item"><span>12+Y expericence</span></div>
+            <div class="hero-item"><span>40+team experts</span></div>
+        </div>
+    </div>
+    <script>
+        const sidebar=document.getElementById('navlinks')
+        const ham=document.getElementById('ham-icon')
+        function togglemenu(){
+            sidebar.classList.toggle('active')
+            ham.classList.toggle('active')
+        }
+    </script>
+</body>
+
+</html>
