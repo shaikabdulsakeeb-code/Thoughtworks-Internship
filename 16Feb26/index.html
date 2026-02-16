@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cric - Scorecard</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        h1 {
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aqua;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #score {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #score span {
+            padding: 5px;
+            color: white;
+            background-color: black;
+            border: 1px solid black;
+            border-radius: 50%;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        #scoreline {
+            margin: 20px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Score: <span id="runs">0</span>/<span id="wicks">0</span>
+    </h1>
+    <div id="scoreline">
+        Score Line: <div id="score">
+
+        </div>
+    </div>
+    <button id="dot">DOT</button>
+    <button id="one">1</button>
+    <button id="two">2</button>
+    <button id="three">3</button>
+    <button id="four">4</button>
+    <button id="five">5</button>
+    <button id="six">6</button>
+    <button id="wicket">W</button>
+    <button id="wide">Wide</button>
+    <button id="noball">noball</button>
+
+    <script>
+        const sc = document.getElementById('score')
+        const runs_board = document.getElementById('runs')
+        const wicks_board = document.getElementById('wicks')
+        var runs = 0, wicks = 0, balls = 0
+        document.getElementById('dot').addEventListener('click', function () {
+            runs = runs + 0
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '. '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('one').addEventListener('click', function () {
+            runs = runs + 1
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '1 '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('two').addEventListener('click', function () {
+            runs = runs + 2
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '2 '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('three').addEventListener('click', function () {
+            runs = runs + 3
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '3 '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('four').addEventListener('click', function () {
+            runs = runs + 4
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '4 '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('five').addEventListener('click', function () {
+            runs = runs + 5
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '5 '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('six').addEventListener('click', function () {
+            runs = runs + 6
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '6 '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('wicket').addEventListener('click', function () {
+            wicks = wicks + 1
+            balls++
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = 'W '
+            sc.appendChild(span_for_ball)
+            wicks_board.innerText = wicks
+            if (balls == 6) {
+                sc.append(document.createElement('br'))
+                balls = 0
+            }
+        })
+        document.getElementById('wide').addEventListener('click', function () {
+            runs = runs + 1
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '1Wd '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+        })
+        document.getElementById('noball').addEventListener('click', function () {
+            runs = runs + 1
+            let span_for_ball = document.createElement('span')
+            span_for_ball.innerText = '1Nb '
+            sc.appendChild(span_for_ball)
+            runs_board.innerText = runs
+        })
+        
+    </script>
+</body>
+
+</html>
