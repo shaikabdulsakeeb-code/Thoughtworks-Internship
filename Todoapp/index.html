@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist-app</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="text" id="task"><button onclick="addtodo()">Add Task</button>
+    <div id="tdlist">
+
+    </div>
+    <script>
+        var task=document.getElementById('task')
+        var tdlist=document.getElementById('tdlist')
+        var tasks=[]
+        function addtodo(){
+            var t=task.value
+            task.value=""
+            tasks.push(t)
+            todoui()
+        }
+        function deletetodo(index){
+            tasks.splice(index,1)
+            todoui()
+        }
+        function todoui(){
+            tdlist.innerText=""
+            tasks.forEach(function(t,idx){
+                var td=document.createElement("div")
+                var name=document.createElement("span")
+                name.innerText=t
+                var delbtn=document.createElement("button")
+                delbtn.innerText="Delete"
+                delbtn.disabled=true
+                var donebtn=document.createElement("button")
+                donebtn.innerText="Done"
+                donebtn.addEventListener('click',function(){
+                    if(donebtn.innerText=="Undo"){
+                        name.innerHTML=t
+                        donebtn.innerText="Done"
+                    }
+                    else{
+                        name.innerHTML="<strike>"+t+"</strike>"
+                        donebtn.innerText="Undo"
+                        delbtn.disabled=false
+                    }
+                })
+                delbtn.addEventListener('click',function(){
+                    deletetodo(idx)
+                })
+                td.append(name,donebtn,delbtn)
+                tdlist.appendChild(td)
+            })
+        }
+
+    </script>
+</body>
+</html>
