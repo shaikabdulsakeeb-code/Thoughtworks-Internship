@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo with LocalStorage</title>
+</head>
+
+<body>
+
+<input type="text" id="task" placeholder="Enter task">
+<input type="text" id="category" placeholder="Enter category">
+<button onclick="addtask()">Add Task</button>
+
+<script>
+class Todolist {
+    constructor(category) {
+        this.category = category;
+        this.tasks = [];
+        this.createCategory();
+    }
+
+    createCategory() {
+        const heading = document.createElement("h3");
+        heading.innerText = this.category;
+
+        const ul = document.createElement("ul");
+        ul.id = this.category;
+
+        document.body.appendChild(heading);
+        document.body.appendChild(ul);
+    }
+
+    addTodo(task, save = true) {
+        this.tasks.push(task);
+
+        const li = document.createElement("li");
+        li.innerText = task;
+        document.getElementById(this.category).appendChild(li);
+
+        if (save) saveData();
+    }
+}
+
+const todolist = {};
+const taskInput = document.getElementById("task");
+const categoryInput = document.getElementById("category");
+
+function addtask() {
+    const task = taskInput.value.trim();
+    const category = categoryInput.value.trim();
+
+    if (!task || !category) return;
+
+    if (!todolist[category]) {
+        todolist[category] = new Todolist(category);
+    }
+
+    todolist[category].addTodo(task);
+
+    taskInput.value = "";
+    categoryInput.value = "";
+}
+
+function saveData() {
+    const data = {};
+
+    for (let category in todolist) {
+        data[category] = todolist[category].tasks;
+    }
+
+    localStorage.setItem("todoData", JSON.stringify(data));
+}
+
+function loadData() {
+    const saved = JSON.parse(localStorage.getItem("todoData"));
+
+    if (!saved) return;
+
+    for (let category in saved) {
+        todolist[category] = new Todolist(category);
+
+        saved[category].forEach(task => {
+            todolist[category].addTodo(task, false);
+        });
+
+        todolist[category].tasks = saved[category];
+    }
+}
+
+loadData();
+</script>
+
+</body>
+</html>
