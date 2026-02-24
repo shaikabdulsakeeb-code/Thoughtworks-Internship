@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment 1</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: black;
+            padding: 0;
+            margin: 0;
+        }
+
+        .p-list {
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .ImgSize {
+            width: 80%;
+        }
+
+        .pcard {
+            border: 1px solid grey;
+            box-shadow: 0px 0px 12px white;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .pdis {
+            width: 60%;
+            background-color: white;
+            display: none;
+            border-radius: 10px;
+            position: fixed;
+            top: 10%;
+            right: 20%;
+            left: 20%;
+            bottom: 10%;
+            padding: 3%;
+        }
+
+        .active {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .pdis button {
+            position: absolute;
+            border: none;
+            background-color: red;
+            color: white;
+            font-weight: 600;
+            top: 3%;
+            right: 3px;
+            width: 3em;
+            height: 3em;
+            border-radius: 50%;
+        }
+
+        .Overlay {
+            background-color: rgb(41, 38, 38);
+            opacity: 0.5;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlayForp"></div>
+    <div class="p-list" id="productlist">
+    </div>
+
+    <div class="pdis" id="pdisplay">
+        <h1></h1>
+        <button onclick="close_p()">X</button>
+        <p></p>
+        <img src="" alt="">
+    </div>
+    <script>
+        const overlay = document.getElementById("overlayForp")
+        const pdisplay = document.getElementById("pdisplay");
+        const pdisplay_heading = document.querySelector("#pdisplay h1")
+        const pdisplay_para = document.querySelector("#pdisplay p")
+        const pdisplay_img = document.querySelector("#pdisplay img")
+        const productlist = document.getElementById("productlist");
+        function getproducts() {
+            fetch("https://dummyjson.com/products").then(res => res.json()).then(data => genUI(data.products));
+        }
+        getproducts();
+        function genUI(products) {
+            productlist.innerHTML = ""
+            products.forEach(product => {
+                let productCard = document.createElement("div");
+                productCard.classList.add('pcard')
+                let productTitle = document.createElement("h3");
+                productTitle.innerText = product.title;
+
+                let productImg = document.createElement("img");
+                productImg.src = product.thumbnail;
+                productImg.classList.add('ImgSize');
+
+                productCard.addEventListener('click', () => {
+                    pdisplay_heading.innerText = product.title;
+                    pdisplay_para.innerText = product.description;
+                    pdisplay_img.src = product.thumbnail;
+                    // productlist.style.opacity="0.5"
+                    pdisplay.classList.add('active')
+                    overlay.classList.add('Overlay')
+                })
+
+                productCard.appendChild(productImg);
+                productCard.appendChild(productTitle);
+
+                productlist.appendChild(productCard);
+            });
+            overlay.addEventListener(("click"), () => {
+                pdisplay.classList.remove('active')
+                overlay.classList.remove('Overlay')
+            })
+        }
+        function close_p() {
+            pdisplay.classList.remove('active')
+            overlay.classList.remove('Overlay')
+        }
+    </script>
+</body>
+
+</html>
