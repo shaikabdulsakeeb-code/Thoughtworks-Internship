@@ -11,6 +11,7 @@
     <script src="worker.js"></script>
     <script>
         console.log("First statement")
+        //Callback pattern
         function addseries(a, b, cb) {
             let worker = new Worker("worker.js");
             worker.postMessage({ a, b });
