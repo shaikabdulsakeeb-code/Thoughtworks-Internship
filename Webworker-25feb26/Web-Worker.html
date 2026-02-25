@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="worker.js"></script>
+    <script>
+        console.log("First statement")
+        function addseries(a, b, cb) {
+            let worker = new Worker("worker.js");
+            worker.postMessage({ a, b });
+            worker.onmessage = (Res) => {
+                cb(Res.data)
+            }
+            //Promise pattern
+            // let p=new Promise((resolve,reject)=>{
+            //     worker.postMessage({a,b});
+            //     worker.onmessage=(Res)=>{
+            //         resolve(Res.data)
+            //     }
+            // });
+            // return p
+
+        }
+        // addseries(1,100000000).then((result)=>{
+        //     console.log("Sum : "+result)
+        // })
+
+        addseries(1, 100000000, (result) => {
+            console.log("Sum : " + result)
+        })
+
+        console.log("After the lines of addseries method")
+        console.log("Nextlines...")
+    </script>
+</body>
+
+</html>
