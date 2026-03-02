@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recepies</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <th onclick="sorttable('name')">Name</th>
+            <th onclick="sorttable('caloriesPerServing')">Calories</th>
+            <th onclick="sorttable('cookTimeMinutes')">Cooking time</th>
+            <th onclick="sorttable('prepTimeMinutes')">Preperation time time</th>
+            <th onclick="sorttable('rating')">Rating</th>
+        </thead>
+        <tbody id="tdata">
+
+        </tbody>
+    </table>
+    <button id="prev-btn" onclick="prev()">Previous</button>
+    <button id="nxt-btn" onclick="next()">Next</button>
+    <script>
+        const tdata = document.getElementById('tdata');
+        var recipes = []
+        var step = 0;
+        function getRecepies() {
+            fetch("https://dummyjson.com/recipes?limit=10&skip=" + step)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data.recipes)
+                    recipes = data.recipes.slice()
+                    genUI(data.recipes)
+
+                })
+        }
+        getRecepies(10)
+        function genUI(recipes) {
+            tdata.innerHTML = ""
+            recipes.forEach(recipe => {
+                let ntr = `
+                        <tr>
+                            <td>${recipe.name}</td>
+                            <td>${recipe.caloriesPerServing}</td>
+                            <td>${recipe.cookTimeMinutes}</td>
+                            <td>${recipe.prepTimeMinutes}</td>
+                            <td>${recipe.rating}</td>
+                            </tr>
+                `
+                tdata.innerHTML += ntr
+            });
+        }
+        // console.log(recipes)
+        function sorttable(value) {
+            recipes.sort((a, b) => {
+                return a[value] > b[value] ? 1 : -1
+            })
+            genUI(recipes)
+        }
+        function next() {
+            step += 10
+            document.getElementById("prev-btn").disabled=false
+            getRecepies()
+        }
+        if(step==0){
+            document.getElementById("prev-btn").disabled = true
+        }
+
+        function prev() {
+            step -= 10
+            getRecepies()
+        }
+    </script>
+</body>
+
+</html>
