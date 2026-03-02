@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel is needed to process inline JSX in the browser -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body{
+            background-color: black;
+        }
+        .plist {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 10px;
+        }
+
+        .card {
+            width:20%;
+            padding: 1rem;
+            border-radius: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            background: linear-gradient(to right, yellowgreen, rgb(244, 244, 94));
+            box-shadow: 0px 0px 10px white;
+        }
+        .pr{
+            display: flex;
+            justify-content: space-evenly;
+            border-radius: 10px;
+            background-color: aliceblue;
+
+        }
+        .card img {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="plist" id="root">
+
+    </div>
+    <script type="text/babel">
+        var myprs = []
+        async function getpr() {
+            await fetch("https://dummyjson.com/products").then(res => res.json()).then((data) => {
+                myprs = data.products.slice();
+            })
+            var productCards = myprs.map(pr => {
+                return (
+                    <div class="card">
+                        <h3>{pr.title}</h3>
+                        <img src={pr.thumbnail} />
+                        <p>Rating : {pr.rating}</p>
+                        <p class="pr">Price : <strike>{pr.price}</strike>
+                            {Math.round(pr.price * ((pr.discountPercentage)/100))}
+                            </p>
+                        <p>{pr.description}</p>
+                    </div>
+                )
+            })
+
+            ReactDOM.render(productCards, document.getElementById("root"));
+        }
+        getpr()
+    </script>
+</body>
+
+</html>
