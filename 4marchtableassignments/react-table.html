@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .male {
+            background-color: lightblue;
+        }
+
+        .female {
+            background-color: lightsalmon;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        let sortedColumn = "";
+        let sortDirection = false;
+        var actors = [
+            { fullname: "Nandamuri Taraka Rama Rao", gender: "male", age: 72, placeOfBirth: "Nimmakuru", movies: 300 },
+            { fullname: "Akkineni Nageswara Rao", gender: "male", age: 90, placeOfBirth: "Ramapuram", movies: 255 },
+            { fullname: "Chiranjeevi", gender: "male", age: 68, placeOfBirth: "Mogalthur", movies: 155 },
+            { fullname: "Savitri", gender: "female", age: 45, placeOfBirth: "Chirravuru", movies: 250 },
+            { fullname: "Nandamuri Balakrishna", gender: "male", age: 63, placeOfBirth: "Madras", movies: 108 },
+            { fullname: "Akkineni Nagarjuna", gender: "male", age: 64, placeOfBirth: "Chennai", movies: 100 },
+            { fullname: "Sridevi", gender: "female", age: 54, placeOfBirth: "Meenampatti", movies: 300 },
+            { fullname: "Daggubati Venkatesh", gender: "male", age: 63, placeOfBirth: "Karamchedu", movies: 75 },
+            { fullname: "Pawan Kalyan", gender: "male", age: 52, placeOfBirth: "Bapatla", movies: 28 },
+            { fullname: "Mahesh Babu", gender: "male", age: 48, placeOfBirth: "Chennai", movies: 27 },
+            { fullname: "Allu Arjun", gender: "male", age: 41, placeOfBirth: "Chennai", movies: 20 },
+            { fullname: "Prabhas", gender: "male", age: 44, placeOfBirth: "Madras", movies: 22 },
+            { fullname: "Samantha Ruth Prabhu", gender: "female", age: 36, placeOfBirth: "Chennai", movies: 45 },
+            { fullname: "Jr NTR", gender: "male", age: 40, placeOfBirth: "Hyderabad", movies: 30 },
+            { fullname: "Ram Charan", gender: "male", age: 38, placeOfBirth: "Madras", movies: 15 },
+            { fullname: "Nani", gender: "male", age: 40, placeOfBirth: "Hyderabad", movies: 30 },
+            { fullname: "Vijay Deverakonda", gender: "male", age: 34, placeOfBirth: "Achampet", movies: 12 },
+            { fullname: "Ravi Teja", gender: "male", age: 56, placeOfBirth: "Jaggampeta", movies: 70 }
+        ]
+        function sortTable(column) {
+
+            sortedColumn = column
+            sortDirection = !sortDirection
+
+            actors.sort((a, b) => {
+                if (typeof a[column] === "string") {
+                    return sortDirection ?
+                        a[column].localeCompare(b[column]) :
+                        b[column].localeCompare(a[column])
+                }
+                else {
+                    return sortDirection ? a[column] - b[column] : b[column] - a[column]
+                }
+            })
+
+            genui()
+        }
+         var allActors = [...actors]  
+
+        function search(name) {
+            actors = allActors.filter((actor) =>
+                actor.fullname.toLowerCase().startsWith(name.toLowerCase())
+            )
+            genui()
+        }
+        function genui() {
+            var jsx1 = <div>
+                <input type="text" onChange={(e) => {
+                    search(e.target.value)
+                }} placeholder="Enter name" />
+                <table border="2">
+                    <thead>
+                        <tr>
+                            <th onClick={() => sortTable('fullname')}>
+                                Full Name {sortedColumn === "fullname" ? (sortDirection ? "↑" : "↓") : ""}
+                            </th>
+
+                            <th onClick={() => sortTable('gender')}>
+                                Gender {sortedColumn === "gender" ? (sortDirection ? "↑" : "↓") : ""}
+                            </th>
+
+                            <th onClick={() => sortTable('age')}>
+                                Age {sortedColumn === "age" ? (sortDirection ? "↑" : "↓") : ""}
+                            </th>
+
+                            <th onClick={() => sortTable('placeOfBirth')}>
+                                Place {sortedColumn === "placeOfBirth" ? (sortDirection ? "↑" : "↓") : ""}
+                            </th>
+
+                            <th onClick={() => sortTable('movies')}>
+                                Movies {sortedColumn === "movies" ? (sortDirection ? "↑" : "↓") : ""}
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            actors.map((actor) => {
+                                return (
+                                    <tr className={actor.gender == "male" ? "male" : 'female'}>
+                                        <td>{actor.fullname}</td>
+                                        <td>{actor.gender}</td>
+                                        <td>{actor.age}</td>
+                                        <td>{actor.placeOfBirth}</td>
+                                        <td>{actor.movies}</td>
+                                        {actor.gender === 'male' && <td>&#x1F468;</td>}
+                                        {actor.gender === 'female' && <td>&#128105;</td>}
+
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
+            </div>
+            ReactDOM.render(jsx1, document.getElementById("root"))
+        }
+        genui()
+    </script>
+</body>
+
+</html>
