@@ -10,34 +10,147 @@
     <!-- Babel is needed to process inline JSX in the browser -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: linear-gradient(to right, yellowgreen, rgb(157, 237, 114));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .todocard {
+            background: linear-gradient(to right, orange, rgb(212, 180, 120));
+            padding: 30px;
+            width: 350px;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .todocard div {
+            display: flex;
+            gap: 5px;
+
+        }
+        .todocard input[type="text"] {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            width: 200px;
+        }
+
+        .todocard button {
+            padding: 7px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .todocard button:hover {
+            opacity: 0.8;
+        }
+
+        .todocard ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .todocard li {
+            background: white;
+            padding: 8px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .todocard li span {
+            flex: 1;
+        }
+
+        .todocard li button {
+            background: #ff5252;
+            color: white;
+        }
+
+        .todocard li button:first-of-type {
+            background: #2196f3;
+        }
     </style>
 </head>
 
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        
+
         var todos = []
-        function addtodo(task){
+        function addtodo(task) {
             todos.push(task)
+            genui()
         }
-        var todoapp = <div>
-            <input type="text" id="ip" />
-            <button onClick={() => {
-                var t=document.getElementById("ip");
-                addtodo(t.value)
-                t.value=""
-            }}>Add todo</button>
-            <ul>
-                {
-                    todos.map((todo) => {
-                        return <li>{todo}</li>
-                    })
-                }
-            </ul>
-        </div>
-        ReactDOM.render(todoapp,document.getElementById("root"))
+        function edittodo(i) {
+            let newtodo = prompt()
+            if(newtod=""){
+                return;
+            }
+            todos.splice(i, 1, newtodo)
+            genui()
+        }
+        function deltodo(i) {
+            todos.splice(i, 1);
+            genui()
+        }
+        function genui() {
+            var todoapp = (<div className="todocard"><div>
+                <input type="text" id="ip" />
+                <button onClick={() => {
+                    var t = document.getElementById("ip");
+                    addtodo(t.value)
+                    t.value = ""
+                }}>Add todo</button></div>
+                <ul type="none">
+                    {
+                        todos.map((todo, i) => {
+                            return (
+
+                                <li><input type="checkBox" onChange={() => {
+                                    handlecheck(i)
+                                }} /> {todo}
+                                    <button onClick={() => {
+                                        edittodo(i)
+                                    }}>Edit</button>
+                                    <button onClick={() => {
+                                        deltodo(i)
+                                    }}>Delete</button>
+                                </li>)
+                        })
+                    }
+                </ul>
+            </div>)
+            ReactDOM.render(todoapp, document.getElementById("root"))
+        }
+        function handlecheck(i) {
+            if (todos[i].startsWith("✔")) {
+                todos[i] = todos[i].replace("✔", "")
+            }
+            else {
+                todos[i] = "✔" + todos[i]
+            }
+            genui()
+        }
+        genui()
     </script>
 </body>
 
