@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyAcademy | Modern Learning</title>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --dark: #0f172a;
+      --light-bg: #f8fafc;
+      --white: #ffffff;
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-main);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .nav-links span {
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: color 0.3s;
+    }
+
+    .nav-links span:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      clip-path: ellipse(150% 100% at 50% 0%); /* Subtle curve effect */
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero button {
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      padding: 16px 40px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Courses Grid */
+    .courses-container {
+      max-width: 1200px;
+      margin: -50px auto 0; /* Pulled up into the hero slightly */
+      padding: 0 20px 80px;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid #eef2f6;
+      padding: 40px 30px;
+      text-align: left;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: var(--shadow);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--dark);
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .footer p { margin: 0; font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .nav-links { display: none; } /* Simplified for mobile */
+    }
+  </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+// Navbar Component
+const Navbar = () => (
+  <nav className="navbar">
+    <div className="logo">MyAcademy</div>
+    <div className="nav-links">
+      <span>Home</span>
+      <span>Courses</span>
+      <span>Mentors</span>
+      <span>Contact</span>
+    </div>
+  </nav>
+);
+
+// Hero Component
+const Hero = () => (
+  <header className="hero">
+    <h1>Master Your Future.</h1>
+    <p>Premium web development courses taught by industry experts. Join 50,000+ students today.</p>
+    <button>Get Started for Free</button>
+  </header>
+);
+
+// Courses Component
+const Courses = () => {
+  const data = [
+    { title: "HTML5 & Structure", desc: "Build the backbone of the web with semantic code.", icon: "🏗️" },
+    { title: "Modern CSS", desc: "Master Flexbox, Grid, and beautiful animations.", icon: "🎨" },
+    { title: "React Development", desc: "Create high-performance user interfaces with hooks.", icon: "⚛️" },
+    { title: "Node.js Mastery", desc: "Build scalable backends and professional APIs.", icon: "🚀" }
+  ];
+
+  return (
+    <section className="courses-container">
+      <div className="courses-grid">
+        {data.map((course, index) => (
+          <div className="card" key={index}>
+            <span className="icon">{course.icon}</span>
+            <h3>{course.title}</h3>
+            <p>{course.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// Footer Component
+const Footer = () => (
+  <footer className="footer">
+    <p>© 2026 MyAcademy Learning Systems. Built with passion for developers.</p>
+  </footer>
+);
+
+// App Component
+const App = () => (
+  <React.Fragment>
+    <Navbar></Navbar>
+    <Hero />
+    <Courses />
+    <Footer />
+  </React.Fragment>
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
+</script>
+</body>
+</html>
