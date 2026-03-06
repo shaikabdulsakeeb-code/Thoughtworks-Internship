@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            overflow: hidden;
+            width: 200px;
+            height: 300px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 40%;
+            object-fit: cover;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-evenly;
+            padding: 20px;
+            width: 60%;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+            height: 10vh;
+            position: sticky;
+            border-radius: 40px;
+            top: 7px;
+            width: 80vw;
+            margin: auto;
+            padding-left: 40px;
+            font-weight: 600;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #5a2d0c;
+            cursor: pointer;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cart {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            width: 250px;
+            border: 2px solid #5a2d0c;
+            margin: 30px;
+
+        }
+        .card button {
+            background-color: #5a2d0c;
+            font-weight: 600;
+            color: white;
+            border: none;
+            padding: 9px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <!-- your products file -->
+    <script src="script.js"></script>
+
+    <script type="text/babel">
+
+        function App() {
+
+            var [c, setC] = React.useState(0)
+            var [cartItems, setCartItems] = React.useState([])
+
+            return (
+                <div>
+
+                    <div className="navbar">
+                        <a href="#">Home</a>
+                        <a href="#">Products</a>
+                        <a href="#">Contact Us</a>
+                        <span>Cart ({c})</span>
+                    </div>
+
+                    <div className="main">
+
+                        <Products
+                            setC={setC}
+                            c={c}
+                            cartItems={cartItems}
+                            setCartItems={setCartItems}
+                        />
+
+                        <Cart cartItems={cartItems} />
+
+                    </div>
+
+                </div>
+            )
+        }
+
+        function Card(props) {
+
+            return (
+                <div className="card">
+
+                    <img src={props.p.image} alt={props.p.title} />
+
+                    <h4>{props.p.title}</h4>
+
+                    <h5>Price : {props.p.price.toFixed(2)}</h5>
+
+                    <button onClick={() => {
+
+                        props.setC(props.c + 1)
+
+                        props.setCartItems([
+                            ...props.cartItems,
+                            props.p
+                        ])
+
+                    }}>
+                        Add to Cart
+                    </button>
+
+                </div>
+            )
+        }
+
+        function Products(props) {
+
+            return (
+                <div className="products">
+
+                    {
+                        myproducts.map((product) => {
+                            return <Card
+                                key={product.id}
+                                p={product}
+                                setC={props.setC}
+                                c={props.c}
+                                cartItems={props.cartItems}
+                                setCartItems={props.setCartItems}
+                            />
+                        })
+                    }
+
+                </div>
+            )
+
+        }
+
+        function Cart(props) {
+
+            return (
+                <div className="cart">
+
+                    <h1>Cart</h1>
+
+                    {
+                        props.cartItems.length === 0
+                            ?
+                            <h3>Cart is empty</h3>
+                            :
+                            props.cartItems.map((item) => {
+                                return (
+                                    <div className="card">
+                                        <img src={item.image} alt={item.title} />
+                                        <h4>{item.title}</h4>
+                                        <h5>{item.price}</h5>
+                                    </div>
+                                )
+                            })
+                    }
+
+                </div>
+            )
+
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"))
+
+    </script>
+
+</body>
+
+</html>
